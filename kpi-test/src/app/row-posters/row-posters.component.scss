@@ -1,0 +1,35 @@
+.container-fluid {
+  background-color: #e7e9eb;
+  h1,
+  h5 {
+    text-align: center;
+  }
+  .container {
+    .row {
+      .col-lg-4 {
+        @media screen and (max-width: 768px) {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          padding: 0px;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          font-size: 20px;
+        }
+        .box {
+          height: 100%;
+          h5{
+            @media screen and (max-width:768px) {
+              font-size: 2rem;
+            }
+          }
+          p{
+            @media screen and (max-width:768px) {
+              font-size: 5vw;
+          }
+          }
+        }
+      }
+    }
+  }
+}

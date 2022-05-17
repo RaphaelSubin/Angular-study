@@ -1,0 +1,115 @@
+// // .social-community-wrapper {
+// //   @media screen and (max-width: 768px) {
+// //     overflow-x: scroll;
+// //     background-color: red;
+// //   }
+// //   .social-flex {
+// //     display: flex;
+// //     &::-webkit-scrollbar {
+// //       display: none;
+// //     }
+// //     @media screen and (max-width: 768px) {
+// //       overflow-x: scroll;
+// //     }
+// //     .inner-box {
+// //       border-radius: 15px;
+// //       width: 33.33%;
+// //       margin: 15px;
+// //       @media screen and (max-width: 768px) {
+// //         min-width: 70vw;
+// //       }
+// //     }
+// //   }
+// //   h2 {
+// //     color: #001658;
+// //     font-size: 40px;
+// //     font-weight: 700;
+// //     font-family: #2C54BD;
+// //     text-align: left;
+// //   }
+// //   .follow-btn{
+// //     background: none;
+// //     border: 0;
+// //     padding: 0 0 5px 0;
+// //     margin-top: 35px;
+// //     color: #d19000;
+// //     font-weight: 700;
+// //     font-family: inherit;
+// //     border-bottom: 1px solid #d19000;
+// //   }
+// // }
+// .row1 {
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding: 0 2px;
+// }
+// .img1{
+//   vertical-align: middle;
+//   width: 100%;
+//   margin-top: 4px !important;
+//   object-fit: cover;
+
+// }
+// //Responsive layout - makes a two column-layout instead of four columns /
+// @media screen and (max-width: 800px) {
+//   .col25,.col33{
+//     flex: 50% ;
+//     max-width: 50%;
+//   }
+// }
+
+// //Responsive layout - makes the two columns stack on top of each other instead of next to each other /
+// @media screen and (max-width: 678px) {
+//   .col25,.col33 {
+//     flex: 50% !important ;
+//     max-width: 50% !important;
+//   }
+// }
+
+$brownColor: #8a7967;
+$blueColor: #0096c5;
+$small: 678px;
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  position: relative;
+}
+.section-heading span {
+  background: #fff;
+  display: inline-block;
+  padding: 0 10px;
+  position: relative !important;
+  line-height: 30px;
+  color: $blueColor;
+}
+.section-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  top: 50%;
+  background: #dce0e2;
+}
+.card-container {
+  margin-top: 20px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 11px 4px rgb(78 29 86 / 15%);
+}
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+.image-wrapper {
+  img {
+    height: 300px;
+    @media screen and (max-width:$small){
+      margin-bottom: 15px;
+    }
+  }
+}

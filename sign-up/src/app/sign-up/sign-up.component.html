@@ -1,0 +1,131 @@
+<h1>Sign-Up Form</h1>
+
+<div class="col-md-6">
+  <form [formGroup]="signUpForm" (ngSubmit)="btnSubmit(signUpForm.value)">
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="firstName"
+        placeholder="Enter First Name.."
+      />
+      <div
+        class="error"
+        *ngIf="
+          signUpForm.controls['firstName'].invalid &&
+          signUpForm.controls['firstName'].touched
+        "
+      >
+        <div *ngIf="signUpForm.controls['firstName'].errors?.['required']">
+          First Name is required
+        </div>
+        <div *ngIf="signUpForm.controls['firstName'].errors?.['minlength']">
+          Minimum 3 Characters
+        </div>
+        <div *ngIf="signUpForm.controls['firstName'].errors?.['maxlength']">
+          Maximum 10 Characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="lastName"
+        placeholder="Enter Last Name.."
+      />
+      <div
+        class="error"
+        *ngIf="
+          signUpForm.controls['lastName'].invalid &&
+          signUpForm.controls['lastName'].touched
+        "
+      >
+        <div *ngIf="signUpForm.controls['lastName'].errors?.['required']">
+          Last Name is required
+        </div>
+        <div *ngIf="signUpForm.controls['lastName'].errors?.['minlength']">
+          Minimum 3 Characters
+        </div>
+        <div *ngIf="signUpForm.controls['lastName'].errors?.['maxlength']">
+          Maximum 10 Characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter Email Address"
+      />
+      <div
+        class="error"
+        *ngIf="
+          signUpForm.controls['email'].invalid &&
+          signUpForm.controls['email'].touched
+        "
+      >
+        <div *ngIf="signUpForm.controls['email'].errors?.['required']">
+          Email is required
+        </div>
+        <div *ngIf="signUpForm.controls['email'].errors?.['email']">
+          Invalid Email
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phoneNo"
+        placeholder="Enter Phone Number"
+      />
+      <div
+        class="error"
+        *ngIf="
+          signUpForm.controls['phoneNo'].invalid &&
+          signUpForm.controls['phoneNo'].touched
+        "
+      >
+        <div *ngIf="signUpForm.controls['firstName'].errors?.['required']">
+          Phone Number is required
+        </div>
+        <div *ngIf="signUpForm.controls['phoneNo'].errors?.['pattern']">
+          Phone Number is not Valid!
+        </div>
+        <!-- <div *ngIf="signUpForm.controls['phoneNo'].errors?.['maxlength']">
+          {{phoneNo.errors.maxLength.actual}} is not a Valid Phone Number
+        </div> -->
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="Enter Password"
+      />
+      <div
+        class="error"
+        *ngIf="
+          signUpForm.controls['password'].invalid &&
+          signUpForm.controls['password'].touched
+        "
+      >
+        <div *ngIf="signUpForm.controls['password'].errors?.['required']">
+          Password is required
+        </div>
+        <div *ngIf="signUpForm.controls['password'].errors?.['minlength']">
+          Minimum 6 Characters
+        </div>
+      </div>
+    </div>
+    <button type="submit"  class="btn btn-primary">Sign Up</button>
+  </form>
+</div>

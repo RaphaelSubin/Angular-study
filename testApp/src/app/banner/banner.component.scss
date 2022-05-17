@@ -1,0 +1,43 @@
+
+
+.banner-wrapper{
+    background-image: url("../../assets/images/lalo-hernandez-Amo081zdJsI-unsplash.png");
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    height: 50vh;
+    border-radius:8px ;
+    .banner-content{
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        h1{
+            text-transform: uppercase;
+            color: #fff;
+        }
+        p{
+            color: #fff;
+        }
+       .container{
+           border-radius: 8px;
+           background: rgb(246,246,251);
+           background: linear-gradient(90deg, rgba(246,246,251,1) 43%, rgba(243,242,248,1) 79%, rgba(0,212,255,1) 100%);
+           .row{
+               align-items: center;
+               .box{
+                text-align: left;
+                   input{
+                       border: 0;
+                       background-color: #f6f6fb;
+                   }
+                   button{
+                       text-align: center;
+                   }
+               }
+           }
+       }
+    }
+
+}

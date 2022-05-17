@@ -1,0 +1,7 @@
+<p>testcomponent works!</p>
+<form #userForm="ngForm" (ngSubmit)="login(userForm.value)">
+  <input type="text" ngModel name="username" placeholder="username" />
+  <input type="password" ngModel name="password" placeholder="password" />
+  <input type="password" ngModel name="password_repeat" placeholder="password" />
+  <button>Add</button>
+</form>

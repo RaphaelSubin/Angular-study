@@ -1,0 +1,31 @@
+.navbar-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px;
+    align-items: center;
+    transition: background-color 0.7s ;
+    .logo{
+        margin-top: 5px;
+        width: 80px;
+    }
+    .content ul li{
+        display: inline-block;
+        margin: 0 20px;
+        cursor: pointer;
+        &:hover{
+            color: yellowgreen;
+        }
+    }
+    button{
+        border-radius: 20px;
+        padding: 3px 10px;
+        color: #fff;
+    }
+    
+}
+
+

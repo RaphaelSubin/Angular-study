@@ -1,0 +1,20 @@
+.error-wrapper{
+    .text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .status {
+          font-size: 15vw;
+          background-image: linear-gradient(to right, #ee9ca7, #fff);
+          color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+        }
+        .desc {
+          font-size: 50px;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+        }
+      }
+}

@@ -1,0 +1,81 @@
+-> Property binding
+   ----------------
+
+   <img src="{{imgUrl}}"/>    =>    <img [src]="imgUrl"/>
+   <h1>{{title}}</h1>         =>    <h1 [textContent]="title"></h1>
+
+-> Attribute binding
+   -----------------
+
+   <table>
+	<tr>
+		<td [colSpan]="colSpan"></td>
+	</tr>
+   </table>
+
+
+   colSpan = 2;
+
+   this will make error : colSpan isn't a known property of <td>
+   So we have to bind it:
+
+   <td [attr.colSpan]="colSpan"></td>
+
+   this will prevent the error.
+
+-> Class binding
+   -------------
+
+   <button class="btn btn-primary">Click</button>
+   
+   Now dynamically adding class to the button
+	
+   <button class="btn btn-primary" [class.active]="isActive">Click</button>
+   
+   isActive : true;
+
+-> Style binding
+   -------------
+
+   <button [style.backgroundColor="isActive ? 'blue' : 'white' "]>Click</button>
+
+-> Event binding
+   -------------
+
+   <button (click)="onSave()">Click</button>
+
+-> Two way binding
+   ---------------
+
+   <input [(ngModel)]="email" (keyUp.enter)="onKeyUp()"/>
+   Now we can get the data from input tag
+
+-> Pipes
+   -----
+
+   course = {
+	title : "techware",
+	count : 56487,
+	rating: 78.4533,
+	price : 34,2352,
+	releaseDate : New Date (23,10,2013)
+   }
+
+   {{course.title}}   => techware
+   {{course.count}}   => 56487
+   {{course.rating}}  => 7.4533
+   {{course.price}}   => 34,2352
+   {{course.releaseDate}} => new Date 23 10 2013 00.00.23.0 etc
+
+
+   we can add pipe to this data like this : 
+
+   {{course.title | uppercase}}  => TECHWARE
+   {{course.count | number}}     => 56,487
+   {{course.rating| number:'1.2-2'}} => 7.45
+   {{course.price | currency:'AUD'}} => AUD 34,2352
+   {{course.releaseDate | date:'shortDate'}} => 23/10/2013
+
+
+	
+

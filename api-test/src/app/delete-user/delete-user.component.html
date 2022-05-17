@@ -1,0 +1,4 @@
+<form #deleteForm="ngForm" (ngSubmit)="deleteUser(deleteForm.value)">
+    <input type="text" ngModel name="username" placeholder="Username"/>
+    <button class="btn btn-primary">Delete</button>
+</form>

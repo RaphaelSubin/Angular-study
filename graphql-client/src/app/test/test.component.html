@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="card-container">
+      <h1 class="section-heading">
+          <span>Follow us on Instagram</span>
+      </h1>
+      <div class="card-wrapper">
+          <div *ngFor="let image of userImages">
+              <div class="image-wrapper">
+                  <img src="{{image.media_url}}" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- <section
+  style="background-color: #fffaed"
+  class="social-community-wrapper"
+  *ngIf="userImages"
+>
+  <div class="container">
+    <h2 class="cmn-heading">The social community</h2>
+    <button class="follow-btn">
+      Follow on Instagram
+      <span class="material-icons arrow-icon"> east </span>
+    </button>
+    <div class="social-flex">
+      <div class="inner-box" *ngFor="let user of userImages">
+        <img
+          src="{{ user.media_url }}"
+          style="border-radius: 15px"
+          class="img-fluid"
+          alt=""
+        />
+        <p>{{ user.caption }}</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- <div className="row1">
+  {userImages.map((col, i) => (
+  <div className="col-25" key="{i}">
+    {col.map((img) => (
+    <img className="img1" key="{img.id}" src="{img.url}" alt="gallery" />
+    ))}
+  </div>
+  ))}
+</div> -->
+<!-- 
+<div class="row1" *ngFor="let image of userImages">
+    <div class="col-25" *ngFor="let i of image">
+        <img class="img1" src="{{i?.media_url}}" alt="text">
+    </div>
+</div> -->
+
+
+<!-- <div class="test">
+  hi this is a <h1>testMessage</h1>
+  <p>kedfhef</p>
+  <a href="#test" target="_self"><h1>test</h1></a>
+  <p>wifuhwogiwehga</p>
+  <h1>subin</h1>
+  <h1>akshay</h1>
+  <div id="test">
+    <p>qqwhdjhdhasdskdjasdjaskdjasd</p>
+    <p>qqwhdjhdhasdskdjasdjaskdjasd</p>
+
+  </div>
+</div> -->

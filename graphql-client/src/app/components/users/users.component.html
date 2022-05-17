@@ -1,0 +1,140 @@
+<div *ngIf="loading">Loading..</div>
+<div *ngIf="error">Error...</div>
+<div class="container" *ngIf="users">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email Address</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let User of users">
+      <tr>
+        <td>{{ User.id }}</td>
+        <td>{{ User.name }}</td>
+        <td>{{ User.username }}</td>
+        <td>{{ User.email }}</td>
+        <td>
+          <button
+            type="button"
+            (click)="updatePopUp(content, User)"
+            class="btn btn-warning"
+          >
+            UPDATE
+          </button>
+        </td>
+        <td>
+          <button type="button" (click)="deletePopUp(contentDetails,User)" class="btn btn-danger">
+            DELETE
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="signUpbtn btn btn-primary ps-2 pe-2" (click)="signUp()">
+  Sign Up
+</button>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="heading">User Update</h4>
+    <button type="button" class="btn-close" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form
+      [formGroup]="userUpdateForm"
+      (ngSubmit)="userUpdateData(userUpdateForm.value)"
+    >
+      <div class="form-group">
+        <label>ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          formControlName="id"
+          placeholder="Enter Id"
+        />
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+          placeholder="Enter Name"
+        />
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="username"
+          placeholder="Enter Username"
+        />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          id="email"
+          placeholder="Enter Email Address"
+        />
+      </div>
+      <button type="submit" class="btn btn-success">UPDATE</button>
+    </form>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="heading">User Delete</h4>
+    <button type="button" class="btn-close" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form
+      [formGroup]="userDeleteForm"
+      (ngSubmit)="userDeleteData(userDeleteForm.value)"
+    >
+      <div class="form-group">
+        <label>ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          formControlName="id"
+          placeholder="Enter Id"
+        />
+      </div>
+      
+      <button type="submit" class="btn btn-danger">DELETE</button>
+    </form>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</ng-template>

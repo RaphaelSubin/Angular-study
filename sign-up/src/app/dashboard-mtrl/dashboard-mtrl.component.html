@@ -1,0 +1,207 @@
+<div class="grid-container">
+  <h1 class="mat-h1">
+    {{
+      this.userDetails.firstName.toUpperCase() +
+        " " +
+        this.userDetails.lastName.toUpperCase()
+    }}
+  </h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile
+      *ngFor="let card of cards | async"
+      [colspan]="card.cols"
+      [rowspan]="card.rows"
+    >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <button
+              mat-icon-button
+              class="more-button"
+              [matMenuTriggerFor]="menu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <table
+              class="table w-50 rounded"
+              style="
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+              "
+            >
+              <tr>
+                <th>ID</th>
+                <td>{{ userDetails.id }}</td>
+              </tr>
+              <tr>
+                <th>First Name</th>
+                <td>{{ userDetails.firstName }}</td>
+              </tr>
+              <tr>
+                <th>Last Name</th>
+                <td>{{ userDetails.lastName }}</td>
+              </tr>
+              <tr>
+                <th>Email Address</th>
+                <td>{{ userDetails.email }}</td>
+              </tr>
+              <tr>
+                <th>Phone Number</th>
+                <td>{{ userDetails.phoneNo }}</td>
+              </tr>
+            </table>
+            <button class="btn btn-primary" (click)="popup(content)">
+              UPDATE
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="dashboard-title">User Update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="userUpdateForm" (ngSubmit)="updateUserData(userUpdateForm.value)">
+      <label>ID</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="id"
+        placeholder="Enter id.."
+      />
+      <div class="form-group">
+        <label>First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+          placeholder="Enter First Name.."
+        />
+        <div
+          class="error"
+          *ngIf="
+            userUpdateForm.controls['firstName'].invalid &&
+            userUpdateForm.controls['firstName'].touched
+          "
+        >
+          <div *ngIf="userUpdateForm.controls['firstName'].errors?.['required']">
+            First Name is required
+          </div>
+          <div *ngIf="userUpdateForm.controls['firstName'].errors?.['minlength']">
+            Minimum 3 Characters
+          </div>
+          <div *ngIf="userUpdateForm.controls['firstName'].errors?.['maxlength']">
+            Maximum 10 Characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="lastName"
+          placeholder="Enter Last Name.."
+        />
+        <div
+          class="error"
+          *ngIf="
+            userUpdateForm.controls['lastName'].invalid &&
+            userUpdateForm.controls['lastName'].touched
+          "
+        >
+          <div *ngIf="userUpdateForm.controls['lastName'].errors?.['required']">
+            Last Name is required
+          </div>
+          <div *ngIf="userUpdateForm.controls['lastName'].errors?.['minlength']">
+            Minimum 3 Characters
+          </div>
+          <div *ngIf="userUpdateForm.controls['lastName'].errors?.['maxlength']">
+            Maximum 10 Characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter Email Address"
+        />
+        <div
+          class="error"
+          *ngIf="
+            userUpdateForm.controls['email'].invalid &&
+            userUpdateForm.controls['email'].touched
+          "
+        >
+          <div *ngIf="userUpdateForm.controls['email'].errors?.['required']">
+            Email is required
+          </div>
+          <div *ngIf="userUpdateForm.controls['email'].errors?.['email']">
+            Invalid Email
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="phoneNo"
+          placeholder="Enter Phone Number"
+        />
+        <div
+          class="error"
+          *ngIf="
+            userUpdateForm.controls['phoneNo'].invalid &&
+            userUpdateForm.controls['phoneNo'].touched
+          "
+        >
+          <div *ngIf="userUpdateForm.controls['firstName'].errors?.['required']">
+            Phone Number is required
+          </div>
+          <div *ngIf="userUpdateForm.controls['phoneNo'].errors?.['pattern']">
+            Phone Number is not Valid!
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">UPDATE</button>
+    </form>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

@@ -1,0 +1,26 @@
+.container-fluid{
+    background-color: #272626;
+    font-family: "Montserrat", sans-serif;
+    .container{
+      .row{
+        .logo{
+            filter:  brightness(0) invert(1);
+        }
+        .footer-header{
+            @media screen and (max-width:768px) {
+                font-size: 3vw;
+            }
+        }
+        h6{
+            @media screen and (max-width:768px) {
+                font-size: 3vw;
+            } 
+        }
+        p{
+            @media screen and (max-width:768px) {
+                font-size: 3vw;
+            }
+        }
+    }
+    }
+}
