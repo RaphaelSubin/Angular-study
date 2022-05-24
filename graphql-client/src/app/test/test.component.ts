@@ -9,7 +9,7 @@ import { firstValueFrom, lastValueFrom, Observable } from 'rxjs';
 })
 export class TestComponent implements OnInit {
   accessToken =
-    'IGQVJVdk5fWmlRRXZAFb3VxczktR1l6RmJoUWVxREY1d0k4V2dqRzI1bWt1NGNTaFlzUlNYVnZABVk8yeExNdUxWMVhYWGhGbkl6emg3YUd0bDJRODl3bE1NdmlRd3B0WHp0TklLSTJPQ2diVXdrdHk5bwZDZD';
+    '';
   userId = '17841408485581744';
   user: any;
   userImages: any[] = [];
